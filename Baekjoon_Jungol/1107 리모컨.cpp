@@ -1,5 +1,5 @@
 /*
-   @ ush 2019/12/18
+   @ ush 2019/12/18 
    * 백준 알고리즘 - 1107 리모컨 (https://www.acmicpc.net/problem/1107)
    * cpp
 
