@@ -6,7 +6,7 @@
    * 모든 경우의 수를 따지면 O(M*N), 즉 1600000000 가지임.
    * 따라서 x를 먼저 고정한 후 해당하는 y 찾는 방법으로 풀이
    * 1. year % M == x 인 year 중에서
-   * 2. year % N == y 인 year 를 찾는 방
+   * 2. year % N == y 인 year 를 찾는 방법
 
 '''
 def solution (M, N, x, y):
