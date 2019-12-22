@@ -44,9 +44,6 @@ def go(index, team1, team2, N, answer):
 
     return answer
 
-
-
-
 N = int(input())
 stats = [list(map(int,input().split())) for _ in range(N)]
 team = [0 if i < N/2 else 1 for i in range(N)]
