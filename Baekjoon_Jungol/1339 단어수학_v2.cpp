@@ -1,4 +1,4 @@
-'''
+/*
    @ 2019.12.21 ush
    * 백준 알고리즘 - 1339 단어수학 (https://www.acmicpc.net/problem/1339)
    * cpp
@@ -8,7 +8,7 @@
    * 2. 중복이 제거된 알파벳이 k개라면, 9876... 순으로 k개를 넣어 순열을 이용해 계산
    * 3. 계산된 값들 중 최대값을 찾는다.
 
-'''
+*/
 #include <iostream>
 #include <vector>
 #include <algorithm>
