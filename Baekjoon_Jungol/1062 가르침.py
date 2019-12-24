@@ -32,14 +32,12 @@ def go(index, k, mask, words, end):
     if answer < temp :
         answer = temp
 
-
     #exclude index
-    if index!= 0 and index!= 2 and index!= 8 and index!= 13 and index!= 19:
+    if index not in [0, 2, 8, 13, 19]:
         temp = go (index+1, k, mask, words, end)
         if answer < temp :
             answer = temp
     return answer
-
 
 n, k = map(int,input().split())
 words=[0]*n
