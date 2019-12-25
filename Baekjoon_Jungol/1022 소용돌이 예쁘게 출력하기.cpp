@@ -28,7 +28,7 @@ int maxDigit(int max){
 void vortex(int r1, int c1, int r2, int c2){
     
     int x = 0, y = 0;
-    int digit = 0, max = -1;
+    int digit = 0, maxVal = -1;
     int size = (r2 - r1 + 1) * (c2 - c1 + 1);
     
     for (int i = r1; i <= r2; i++) {
@@ -56,13 +56,16 @@ void vortex(int r1, int c1, int r2, int c2){
                     arr[x][y] = pow((i * 2), 2) + i - j +1;
                 }
             }
-            
+            /*
             if(max < arr[x][y]){
                 max = arr[x][y];
-            }
+            }*/
         }
     }
-    digit = maxDigit(max);
+    
+    maxVal = *max_element(arr,arr+size);
+    
+    digit = maxDigit(maxVal);
     
     for (int i = r1; i <= r2; i++) {
         for( int j = c1; j <= c2; j++){
@@ -80,3 +83,4 @@ int main() {
     vortex(r1, c1, r2, c2);
     return 0;
 }
+
