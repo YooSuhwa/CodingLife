@@ -29,6 +29,7 @@ void vortex(int r1, int c1, int r2, int c2){
     
     int x = 0, y = 0;
     int digit = 0, max = -1;
+    int size = (r2 - r1 + 1) * (c2 - c1 + 1);
     
     for (int i = r1; i <= r2; i++) {
         for( int j = c1; j <= c2; j++){
@@ -61,7 +62,6 @@ void vortex(int r1, int c1, int r2, int c2){
             }
         }
     }
-    
     digit = maxDigit(max);
     
     for (int i = r1; i <= r2; i++) {
