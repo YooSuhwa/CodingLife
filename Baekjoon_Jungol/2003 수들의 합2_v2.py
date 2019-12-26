@@ -1,3 +1,13 @@
+'''
+   @ ush 2019/12/26
+   * 백준 알고리즘 - 2003 수들의 합2 (https://www.acmicpc.net/problem/2003)
+   * python
+
+   * 수열의 i번째부터 j번째 수까지의 합이 find가 되는 경우의 수 구하기
+   * 1. left/right 포인터를 둔다. (left < right)
+   * 2. 만약 sum <= find 라면 right++ 
+   * 3. 만약 sum > find 라면  left ++
+'''
 n, find = map(int, input().strip().split(' '))
 arr = list(map(int, input().split()))
 
