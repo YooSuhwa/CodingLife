@@ -34,5 +34,8 @@ while(True):
     else :
         sum -= arr[left]
         left += 1
+        if left > right and left < n:
+            right = left
+            sum = arr[left]
 
 print(answer)
