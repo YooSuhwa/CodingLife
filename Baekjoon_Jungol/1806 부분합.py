@@ -35,6 +35,10 @@ while(True):
             break
         sum += arr[right]
     else:
+        len = right - left + 1
+        if (answer > len) or answer == -1:
+            answer = len
+
         sum -= arr[left]
         left += 1
         if left > right and left < n:
