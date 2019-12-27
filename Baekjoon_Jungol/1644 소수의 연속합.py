@@ -1,4 +1,12 @@
+'''
+   @ ush 2019/12/27
+   * 백준 알고리즘 - 1644 소수의 연속합 (https://www.acmicpc.net/problem/1644)
+   * python
 
+   * 백준 '2003 수들의 합'과 연관
+   * 1. 주어진 수 이하의 모든 소수를 찾아 primes 리스트에 저장
+   * 2. pirmes를 바탕으로 연속된 소수의 합으로 나타낼 수 있는 경우의 수를 구함
+'''
 import math
 def findPrimes (n):
     isPrime = [1]*n
