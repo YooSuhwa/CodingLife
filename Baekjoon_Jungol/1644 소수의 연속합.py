@@ -20,7 +20,9 @@ def findPrimes (n):
     return [i for i in range(2, n) if isPrime[i]]
 
 find = int(input())
-
+if find == 0 or find == 1 :
+    print(0)
+    exit()
 primes = findPrimes(find+1)
 
 left = right = 0
@@ -49,3 +51,4 @@ while left <= right and right < n:
             right = left
             sum = primes[left]
 print(answer)
+
