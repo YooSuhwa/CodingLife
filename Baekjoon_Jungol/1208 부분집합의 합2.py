@@ -7,7 +7,6 @@ t1 = n - t2
 team1 = [0]*(1<<t1)
 team2 = [0]*(1<<t2)
 
-
 for i in range(1<<t1) :
     for k in range(t1):
         if i&(1<<k) :
@@ -50,4 +49,6 @@ while i < t1 and j < t2:
             j += 1
         answer += (c1*c2)
 
+if find == 0 :
+    answer -= 1
 print(answer)
