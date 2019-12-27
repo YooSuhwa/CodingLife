@@ -1,3 +1,23 @@
+'''
+   @ ush 2019/12/27
+   * 백준 알고리즘 - 1208 부분수열의 합 2 (https://www.acmicpc.net/problem/1208)
+   * python(PyPy3)
+
+   * 부분수열 중 원소를 더한 값이 find가 되는 경우의 수 구하기
+   * 배열의 크기인 n의 범위가 1~40으로 매우 크다. (2^40)
+   * 따라서 MITM(meet in the middle)방법 사용
+    * 배열을 반으로 나눠서 양쪽 절반에서 모든 경우를 다 해보는 방법.
+   * 1. arr를 반으로 나눈다.
+   * 2. 반으로 나눈 각 어레이의 모든 부분 수열의 합을 bitmask를 통해 담는다.
+   * 3. team1(l)은 오름차순으로, team2(r)는 내림차순으로 정렬한다.
+   * 4. sum = team1[l] + team2[r] 으로 계산한 후
+   *    if sum > find : r-- (t2++)
+        if sum < find : l++ (t1++)
+        if sum == find : 갯수 찾아서 곱하고 더함. l++, r--
+            중복수 건너뛰는거 주의
+   * 5. find == 0 인 경우 공집합은 빼줘야 하므로 answer-- 하기
+'''
+
 n,find = map(int,input().split())
 arr = list(map(int,input().split()))
 
@@ -21,7 +41,6 @@ team1.sort()
 team2.sort(reverse=True)
 t1 = (1<< t1)
 t2 = (1<< t2)
-#[-10, -7, -3, 0] [13, 11, 8, 6, 5, 3, 0, -2]
 
 i = j = 0
 answer = 0
