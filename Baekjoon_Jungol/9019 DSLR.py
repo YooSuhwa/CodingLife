@@ -1,16 +1,9 @@
-import sys
 from collections import deque
-
+import sys
 MAX = 10001
 sys.setrecursionlimit(MAX)
-def go(n,m):
-    if n == m :
-        return
-    go(n, way[m])
-    print(how[m], end="")
 
-
-test =  int(sys.stdin.readline())
+test = int(input())
 for _ in range(0, test):
     a, b = map(int, input().strip().split(" "))
 
@@ -23,46 +16,44 @@ for _ in range(0, test):
     q.append(a)
     visit[a] = True
     dist[a] = 0
-    way[a] = 0
+    way[a] = -1
     while q :
         now = q.popleft()
+        for i in range(0, 4):
+            if i == 0: #D
+                next = (now*2) % 10000
+                if visit[next] :
+                    continue
+                else :
+                    how[next] = 'D'
+            elif i == 1 : #S
+                next = now - 1
+                if next == -1 :
+                    next = 9999
+                if visit[next]:
+                    continue
+                else :
+                    how[next] = 'S'
+            elif i == 2 : #L
+                next = int((now%1000)*10 +(now//1000))
+                if visit[next]:
+                    continue
+                else :
+                    how[next] = 'L'
+            else : #R
+                next = int((now %10)*1000 + (now//10))
+                if visit[next] :
+                    continue
+                else :
+                    how[next] = 'R'
 
-        next = int((now * 2) % 10000)
-        if not visit[next] :
-            how[next] = 'D'
             q.append(next)
             visit[next] = True
-            dist[next] = dist[now] + 1
-            way[next] = now
-
-        next = now - 1
-        if next == 0:
-            next = 9999
-        if not visit[next]:
-            how[next] = 'S'
-            q.append(next)
-            visit[next] = True
-            dist[next] = dist[now] + 1
-            way[next] = now
-
-        next = int((now%1000)*10 +(now/1000))
-        if not visit[next]:
-            how[next] = 'L'
-            q.append(next)
-            visit[next] = True
-            dist[next] = dist[now] + 1
-            way[next] = now
-
-        nex = int((now %10)*1000 + (now/10))
-        if not visit[next]:
-            how[next] = 'R'
-            q.append(next)
-            visit[next] = True
-            dist[next] = dist[now] + 1
+            dist[next] = dist[now]+1
             way[next] = now
 
     answer = ''
-    while a != b:
+    while a!= b:
         answer += how[b]
         b = way[b]
     print(''.join(reversed(answer)))
