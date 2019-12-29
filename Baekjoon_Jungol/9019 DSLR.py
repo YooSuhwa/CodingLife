@@ -1,3 +1,6 @@
+'''
+시간초과
+'''
 import sys
 MAX = 10001
 sys.setrecursionlimit(MAX)
