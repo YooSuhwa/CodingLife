@@ -1,4 +1,6 @@
+import sys
 MAX = 200000
+sys.setrecursionlimit(MAX) #런타임에러 해결 (재귀 횟수 제한 늘리기)
 
 def go(n,m):
     if n != m :
