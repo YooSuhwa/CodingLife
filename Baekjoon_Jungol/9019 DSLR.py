@@ -4,6 +4,11 @@
 import sys
 MAX = 10001
 sys.setrecursionlimit(MAX)
+def go(n,m):
+    if n != m :
+        go(n, way[m])
+    print(how[m], end="")
+
 
 test = int(input())
 for _ in range(0, test):
@@ -54,9 +59,6 @@ for _ in range(0, test):
             dist[next] = dist[now]+1
             way[next] = now
 
-    answer = []
-    while a!= b:
-        answer.append(how[b])
-        b = way[b]
-    answer.reverse()
-    print(''.join(answer))
+    answer = ''
+    go(a,b)
+    print()
