@@ -16,7 +16,7 @@ for _ in range(0, test):
     q.append(a)
     visit[a] = True
     dist[a] = 0
-    way[a] = -1
+    way[a] = 0
     while q :
         now = q.popleft()
         for i in range(0, 4):
@@ -35,13 +35,13 @@ for _ in range(0, test):
                 else :
                     how[next] = 'S'
             elif i == 2 : #L
-                next = int((now%1000)*10 +(now//1000))
+                next = (now%1000)*10 +(now//1000)
                 if visit[next]:
                     continue
                 else :
                     how[next] = 'L'
             else : #R
-                next = int((now %10)*1000 + (now//10))
+                next = (now %10)*1000 + (now//10)
                 if visit[next] :
                     continue
                 else :
