@@ -3,6 +3,8 @@
    * 백준 알고리즘 - 9019 DSLR (https://www.acmicpc.net/problem/9019)
    * python
 
+   * BFS
+
    * 네자리 숫자 A, B가 주어졌을 때 A에서 B로 바꾸는 최소 연산 횟수와 과정을 구하는 문제
    * D, S, L, R 네가지 행동을 할 수 있다.
     * 이때 네가지 행동 모두 중요도가 같으므로 BFS를 이용
