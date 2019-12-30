@@ -7,7 +7,7 @@ q = deque()
 visit = [[False] * (201) for _ in range(201)]
 answer = []
 
-q.append((0,1))
+q.append((0,0))
 visit[0][0] = True
 answer.append(cSize)
 
@@ -25,7 +25,7 @@ while q :
     newB += newA
     newA = 0
 
-    if newB > bSize:
+    if newB >= bSize:
         newA = newB - bSize
         newB = bSize
 
@@ -43,7 +43,7 @@ while q :
     newC += newA
     newA = 0
 
-    if newC > cSize:
+    if newC >= cSize:
         newA = newC - cSize
         newC = cSize
 
@@ -61,7 +61,7 @@ while q :
     newA += newB
     newB = 0
 
-    if newA > aSize:
+    if newA >= aSize:
         newB = newA - aSize
         newA = aSize
 
@@ -79,7 +79,7 @@ while q :
     newC += newB
     newB = 0
 
-    if newC > cSize:
+    if newC >= cSize:
         newB = newC - cSize
         newC = cSize
 
@@ -97,7 +97,7 @@ while q :
     newA += newC
     newC = 0
 
-    if newA > aSize:
+    if newA >= aSize:
         newC = newA - aSize
         newA = aSize
 
@@ -115,7 +115,7 @@ while q :
     newB += newC
     newC = 0
 
-    if newB > aSize:
+    if newB >= aSize:
         newC = newB - bSize
         newB = bSize
 
