@@ -4,7 +4,7 @@ aSize, bSize, cSize = map(int, input().strip().split(' '))
 sum = cSize
 
 q = deque()
-visit = [[False] * (200) for _ in range(200)]
+visit = [[False] * (201) for _ in range(201)]
 answer = []
 
 q.append((0,1))
