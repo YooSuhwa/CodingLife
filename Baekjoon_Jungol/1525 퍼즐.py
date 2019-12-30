@@ -1,4 +1,17 @@
+'''
+   @ ush 2019/12/30
+   * 백준 알고리즘 - 1525 퍼즐 (https://www.acmicpc.net/problem/1525)
+   * python
 
+   * BFS
+
+   * 8퍼즐을 푸는 문제
+   * 상태의 수가 많기때문에 배열로 저장할 수가 없다. 
+        따라서 dict()를 이용 (c++ map / java hashMap 이용하여 저장)
+   * 1. 빈칸을 숫자 9로 두고, 빈칸(9)의 위치를 구한 후 상하좌우로 하나씩 bfs
+   * 2. 상하좌우로 바꾸는 next가 dist에 없으면 q.push(next)
+   * 3. 최종적으로 dist[123456789]가 존재하면 출력. 아니면 -1을 출력한다. 
+'''
 from collections import deque
 puzzleSize = 3
 dx = [0,0,1,-1]
@@ -36,7 +49,7 @@ while q :
             temp[emptyX*3+emptyY],temp[newX*3+newY] = temp[newX*3+newY],temp[emptyX*3+emptyY]
             next = int(''.join(temp))
 
-            if dist.get(next, -1) == -1:
+            if dist.get(next, -1) == -1: #next not in dist
                 q.append(next)
                 dist[next] = dist[now]+1
 
