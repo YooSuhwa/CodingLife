@@ -5,11 +5,14 @@ sum = cSize
 
 q = deque()
 visit = [[False] * (201) for _ in range(201)]
-answer = []
+answer = [False] * 201
+
+#answer = []
 
 q.append((0,0))
 visit[0][0] = True
-answer.append(cSize)
+answer[cSize] = True
+#answer.append(cSize)
 
 while q :
     now = q.popleft()
@@ -25,7 +28,7 @@ while q :
     newB += newA
     newA = 0
 
-    if newB >= bSize:
+    if newB > bSize:
         newA = newB - bSize
         newB = bSize
 
@@ -33,7 +36,8 @@ while q :
         visit[newA][newB] = True
         q.append((newA, newB))
         if newA == 0 :
-            answer.append(newC)
+            answer[newC] = True
+            #answer.append(newC)
 
     # 2. a >> c
     newA = a
@@ -43,7 +47,7 @@ while q :
     newC += newA
     newA = 0
 
-    if newC >= cSize:
+    if newC > cSize:
         newA = newC - cSize
         newC = cSize
 
@@ -51,7 +55,7 @@ while q :
         visit[newA][newB] = True
         q.append((newA, newB))
         if newA == 0:
-            answer.append(newC)
+            answer[newC] = True
 
     #3. b >> a
     newA = a
@@ -61,7 +65,7 @@ while q :
     newA += newB
     newB = 0
 
-    if newA >= aSize:
+    if newA > aSize:
         newB = newA - aSize
         newA = aSize
 
@@ -69,7 +73,7 @@ while q :
         visit[newA][newB] = True
         q.append((newA, newB))
         if newA == 0:
-            answer.append(newC)
+            answer[newC] = True
 
     #4. b >> c
     newA = a
@@ -79,7 +83,7 @@ while q :
     newC += newB
     newB = 0
 
-    if newC >= cSize:
+    if newC > cSize:
         newB = newC - cSize
         newC = cSize
 
@@ -87,7 +91,7 @@ while q :
         visit[newA][newB] = True
         q.append((newA, newB))
         if newA == 0:
-            answer.append(newC)
+            answer[newC] = True
 
     #5. c >> a
     newA = a
@@ -97,7 +101,7 @@ while q :
     newA += newC
     newC = 0
 
-    if newA >= aSize:
+    if newA > aSize:
         newC = newA - aSize
         newA = aSize
 
@@ -105,7 +109,7 @@ while q :
         visit[newA][newB] = True
         q.append((newA, newB))
         if newA == 0:
-            answer.append(newC)
+            answer[newC] = True
 
     #6. c >> b
     newA = a
@@ -115,7 +119,7 @@ while q :
     newB += newC
     newC = 0
 
-    if newB >= aSize:
+    if newB > aSize:
         newC = newB - bSize
         newB = bSize
 
@@ -123,9 +127,9 @@ while q :
         visit[newA][newB] = True
         q.append((newA, newB))
         if newA == 0:
-            answer.append(newC)
+            answer[newC] = True
 
 
-answer.sort()
-for i in answer:
-    print(i, end=" ")
+for i in range(cSize+1):
+    if answer[i] == True:
+        print(i, end=' ')
