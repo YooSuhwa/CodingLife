@@ -3,7 +3,7 @@
    * 백준 알고리즘 - 12851 숨바꼭질4 (https://www.acmicpc.net/problem/12851)
    * python
 
-   * BFS and DP
+   * BFS & DP
 
    * 위치 start에서 find로 가는 가장 빠른 시간과 그 시간으로 갈 수 있는 방법의 수를 구하는 문제
    * 가장 빠른 시간을 구하기 : BFS 이용 (dist, visit list)
