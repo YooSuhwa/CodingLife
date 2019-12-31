@@ -18,7 +18,7 @@ def makeBFS (board, x, y, h, w):
             newY = y + dy[k]
 
             if (-1< newX < h) and (-1 < newY < w):
-                print(newX, newY)
+
                 if dist[newX][newY] != -1:
                     continue
                 if board[newX][newY] == '*' :# 벽
@@ -31,18 +31,15 @@ def makeBFS (board, x, y, h, w):
                     q.appendleft((newX, newY))
     return dist
 
-h, w = map(int, input().strip().split(' '))
+t = int(input())
+for _ in range(t):
+    h, w = map(int, input().strip().split(' '))
 
-board = []
-board.append('.'*w)
-for i in range(0, h):
-    board.append('.'+input()+'.')
-board.append('.'*w)
-
-#bfs0 : from external point (0,0) / bfs1 : prisoner1 / bfs2 : prisoner2
-bfs0 = makeBFS(board, 0, 0, h, w)
-'''
-[[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, -1, -1, -1, -1, 1, -1, -1, -1], [0, -1, 2, 2, 2, 1, 2, 2, 2], [0, -1, -1, -1, -1, 1, -1, -1, -1], [0, -1, 3, 3, 2, 2, 2, 3, 3]]
-'''
-
-print(bfs0)
+    board = []
+    for i in range(0, h):
+        board.append('.' + input() + '.')
+    h += 2
+    w += 2
+    board = ['.' * w] + board + ['.' * w]
+    # bfs0 : from external point (0,0) / bfs1 : prisoner1 / bfs2 : prisoner2
+    bfs0 = makeBFS(board, 0, 0, h, w)
