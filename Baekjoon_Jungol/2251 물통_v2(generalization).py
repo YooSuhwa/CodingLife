@@ -1,7 +1,7 @@
 '''
    @ 2019.12.31 ush
    * 백준 알고리즘 - 2251 물통 (https://www.acmicpc.net/problem/2251)
-   * python (PyPy3)
+   * python
 
    * BFS
    * 2251 물통_v1.py 을 일반화하여 구현
