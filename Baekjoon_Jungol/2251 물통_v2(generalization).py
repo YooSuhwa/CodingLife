@@ -1,10 +1,25 @@
+'''
+   @ 2019.12.30 ush
+   * 백준 알고리즘 - 2251 물통 (https://www.acmicpc.net/problem/2251)
+   * python (PyPy3)
+
+   * BFS
+   * 2251 물통_v1.py 을 일반화하여 구현
+
+   * 세 물통 A,B,C 중 A,B는 비어있고 C는 가득 차있다.
+   * 어떤 물통에 들어있는 물을 다른 물통으로 쏟아 부을 수 있다.
+        1. 이때 앞의 물통이 빌때까지 붓거나
+        2. 뒤의 물통이 가득 찰 때까지 붓게 된다.
+   * A가 비어있을 때, C에 들어갈 수 있는 양을 모두 구하는 문제
+
+'''
 from collections import deque
 
 size = list(map(int, input().strip().split(' ')))
 sum = size[2]
 
-sideFr = [0, 0, 1, 1, 2, 2]
-sideTo = [1, 2, 0, 2, 0, 1]
+sideFr = [0, 0, 1, 1, 2, 2]  # form
+sideTo = [1, 2, 0, 2, 0, 1]  # to
 
 q = deque()
 visit = [[False] * (201) for _ in range(201)]
