@@ -16,19 +16,22 @@ answer.append(size[2])
 
 abc = [0]*3
 next = [0]*3
+
 while q :
     now = q.popleft()
-
 
     abc[0] = now[0]
     abc[1] = now[1]
     abc[2] = sum - abc[0] - abc[1]
-    print(now, abc)
 
     for i in range(6):
-        next = abc
+        #next = abc
+        next[0] = abc[0]
+        next[1] = abc[1]
+        next[2] = abc[2]
+        print(next)
 
-        next[sideTo[i]]+= next[sideFr[i]]
+        next[sideTo[i]] += next[sideFr[i]]
         next[sideFr[i]] = 0
 
         if next[sideTo[i]] >= size[sideTo[i]]:
