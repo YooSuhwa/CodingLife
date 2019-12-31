@@ -44,7 +44,7 @@ for _ in range(t):
     # bfs0 : from external point (0,0) / bfs1 : prisoner1 / bfs2 : prisoner2
     bfs0 = makeBFS(board, 0, 0, h, w)
 
-    # 죄수위치 찾기 
+    # 죄수위치 찾
     flag = -1
     for i in range(h):
         for j in range(w):
