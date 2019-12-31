@@ -18,8 +18,8 @@ from collections import deque
 size = list(map(int, input().strip().split(' ')))
 sum = size[2]
 
-sideFr = [0, 0, 1, 1, 2, 2]  # form
-sideTo = [1, 2, 0, 2, 0, 1]  # to
+sideFr = [0, 0, 1, 1, 2, 2]   # from
+sideTo = [1, 2, 0, 2, 0, 1]   # to
 
 q = deque()
 visit = [[False] * (201) for _ in range(201)]
@@ -44,7 +44,6 @@ while q :
         next[0] = abc[0]
         next[1] = abc[1]
         next[2] = abc[2]
-        print(next)
 
         next[sideTo[i]] += next[sideFr[i]]
         next[sideFr[i]] = 0
