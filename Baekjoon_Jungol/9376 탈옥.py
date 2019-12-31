@@ -41,5 +41,8 @@ board.append('.'*w)
 
 #bfs0 : from external point (0,0) / bfs1 : prisoner1 / bfs2 : prisoner2
 bfs0 = makeBFS(board, 0, 0, h, w)
+'''
+[[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, -1, -1, -1, -1, 1, -1, -1, -1], [0, -1, 2, 2, 2, 1, 2, 2, 2], [0, -1, -1, -1, -1, 1, -1, -1, -1], [0, -1, 3, 3, 2, 2, 2, 3, 3]]
+'''
 
 print(bfs0)
