@@ -25,8 +25,8 @@ while q :
                 dist[next] = dist[now] + 1
                 count[next] = count[now]
 
-                if dist[next] == dist[now] + 1:
-                    count[next] += count[now]
+            elif dist[next] == dist[now] + 1:
+                count[next] += count[now]
 
 print(dist[find])
 print(count[find])
