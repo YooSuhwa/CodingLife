@@ -40,7 +40,7 @@ while q :
     abc[2] = sum - abc[0] - abc[1]
 
     for i in range(6):
-        #next = abc
+        #next = abc[:]
         next[0] = abc[0]
         next[1] = abc[1]
         next[2] = abc[2]
