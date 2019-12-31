@@ -43,6 +43,33 @@ for _ in range(t):
     board = ['.' * w] + board + ['.' * w]
     # bfs0 : from external point (0,0) / bfs1 : prisoner1 / bfs2 : prisoner2
     bfs0 = makeBFS(board, 0, 0, h, w)
-'''
-[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, -1, -1, -1, -1, 1, -1, -1, -1, -1, 0], [0, -1, 2, 2, 2, 1, 2, 2, 2, -1, 0], [0, -1, -1, -1, -1, 1, -1, -1, -1, -1, 0], [0, -1, 3, 3, 2, 2, 2, 3, 3, -1, 0], [0, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
-''''
+
+    # 죄수위치 찾기 
+    flag = -1
+    for i in range(h):
+        for j in range(w):
+            if board[i][j] == '$':  # prisoner
+                if flag == -1:
+                    x1 = i
+                    y1 = j
+                    flag = 1
+                else:
+                    x2 = i
+                    y2 = j
+                    break
+
+    bfs1 = makeBFS(board, x1, y1, h, w)
+    bfs2 = makeBFS(board, x2, y2, h, w)
+
+    answer = h * w
+    for i in range(h):
+        for j in range(w):
+            if board[i][j] == '*':
+                continue
+            temp = bfs0[i][j] + bfs1[i][j] + bfs2[i][j]
+            if board[i][j] == '#':
+                temp -= 2
+
+            answer = min(answer, temp)
+
+    print(answer)
