@@ -22,7 +22,6 @@
    				>> key에 넣기 and q_alpha에 있던 모든 좌표를 q에 넣는다
    * 4. answer 출력
 '''
-
 from collections import deque
 
 dx = [0,0,1,-1]
@@ -47,13 +46,10 @@ for _ in range(testCase):
 
     answer = 0
     while q:
-        now = q.popleft()
-        x = now[0]
-        y = now[1]
+        x, y = q.popleft()
 
         for i in range(4):
-            newX = x + dx[i]
-            newY = y + dy[i]
+            newX,newY = x+dx[i],y+dy[i]
 
             if visit[newX][newY] :
                 continue
@@ -83,5 +79,3 @@ for _ in range(testCase):
                         q.append(q_alpha[temp].popleft())
 
     print(answer)
-
-
