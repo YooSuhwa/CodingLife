@@ -50,8 +50,6 @@ while q:
                 temp = ord(pos)-ord('A')
                 while q_alpha[temp]:
                     q.append(q_alpha[temp].popleft())
-        else: #empty
-            q.append((newX,newY))
 
 print(answer)
 
