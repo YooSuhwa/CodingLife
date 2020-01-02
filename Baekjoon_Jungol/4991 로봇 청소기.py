@@ -66,7 +66,7 @@ flag = 0
 for i in range(0, length):
     distEach = bfs(q[i][0], q[i][1])
     for j in range (0, length):
-        dist[i][j] = distEach[q[j][0]][q[j][0]]
+        dist[i][j] = distEach[q[j][0]][q[j][1]]
         if dist[i][j] == -1 :
             flag = -1
             break
