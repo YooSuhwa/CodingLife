@@ -20,6 +20,26 @@ def bfs (inx, iny):
                     q.append((newX, newY))
 
     return dist
+def nextPermutation(num):
+    i = len(num)-1
+    while i > 0 and num[i-1] >= num[i]:
+        i -= 1
+    if i <= 0:
+        return False
+
+    j = len(num)-1
+    while num[j] <= num[i-1]:
+        j -= 1
+
+    num[i-1],num[j] = num[j],num[i-1]
+
+    j = len(num)-1
+    while i < j:
+        num[i],num[j] = num[j],num[i]
+        i += 1
+        j -= 1
+
+    return True
 
 dx = [0,0,-1,1]
 dy = [-1,1,0,0]
@@ -43,10 +63,9 @@ length = len(q)
 dist = [[-1]*length for _ in range(length)]
 flag = 0
 
-for i in range(0, h):
-    distEach = []
+for i in range(0, length):
     distEach = bfs(q[i][0], q[i][1])
-    for j in range (0, w):
+    for j in range (0, length):
         dist[i][j] = distEach[q[j][0]][q[j][0]]
         if dist[i][j] == -1 :
             flag = -1
@@ -58,15 +77,19 @@ if flag == -1 :
     continue
     '''
 
+permutation = [i+1 for i in range(0, length-1)]
+
 answer = -1
 while True :
-    now = dist[0][1]
+    now = dist[0][permutation[0]]
 
     for i in range(length-2):
-        now += dist[i+1][i+2]
+        now += dist[permutation[i]][permutation[i+1]]
 
     if answer == -1 or answer > now :
         answer = now
+    if not nextPermutation (permutation):
+        break
 
 
 print(answer)
