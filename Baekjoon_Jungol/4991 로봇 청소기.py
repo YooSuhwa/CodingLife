@@ -10,6 +10,16 @@ def bfs (inx, iny):
     while q :
         (x, y) = q.popleft()
 
+        for k in range(4):
+            newX = x + dx[k]
+            newY = y + dy[k]
+
+            if (-1<newX<h) and (-1<newY <w):
+                if dist[newX][newY] == -1 and board[newX][newY] != 'x': #가구 아니고 방문 아직 안함
+                    dist[newX][newY] = dist[x][y] + 1
+                    q.append((newX, newY))
+
+    return dist
 
 dx = [0,0,-1,1]
 dy = [-1,1,0,0]
@@ -59,3 +69,4 @@ while True :
         answer = now
 
 
+print(answer)
