@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def bfs (inx, iny):
     q = deque()
     dist = [[-1]*w for _ in range(h)]
@@ -20,7 +21,9 @@ def bfs (inx, iny):
                     q.append((newX, newY))
 
     return dist
-def nextPermutation(num):
+
+
+def next_permutation(num):
     i = len(num)-1
     while i > 0 and num[i-1] >= num[i]:
         i -= 1
@@ -41,55 +44,52 @@ def nextPermutation(num):
 
     return True
 
+
 dx = [0,0,-1,1]
 dy = [-1,1,0,0]
-w, h = map(int, input().strip().split(' '))
-board = [input() for _ in range(h)]
+while True :
+    w, h = map(int, input().strip().split(' '))
+    if w == 0 and h == 0 :
+        break
+    board = [input() for _ in range(h)]
+    q = deque()
 
-if w == 0 and h == 0 :
-    exit()
+    for i in range(h):
+        for j in range(w):
+            temp = board[i][j]
+            if temp == 'o' :
+                q.appendleft((i, j))
+            elif temp == '*' :
+                q.append((i, j))
 
-q = deque()
+    length = len(q)
+    dist = [[-1]*length for _ in range(length)]
+    flag = 0
 
-for i in range(h):
-    for j in range(w):
-        temp = board[i][j]
-        if temp == 'o' :
-            q.appendleft((i, j))
-        elif temp == '*' :
-            q.append((i, j))
+    for i in range(0, length):
+        distEach = bfs(q[i][0], q[i][1])
+        for j in range (0, length):
+            dist[i][j] = distEach[q[j][0]][q[j][1]]
+            if dist[i][j] == -1 :
+                flag = -1
+                break
 
-length = len(q)
-dist = [[-1]*length for _ in range(length)]
-flag = 0
+    if flag == -1 :
+        print(-1)
+        continue
 
-for i in range(0, length):
-    distEach = bfs(q[i][0], q[i][1])
-    for j in range (0, length):
-        dist[i][j] = distEach[q[j][0]][q[j][1]]
-        if dist[i][j] == -1 :
-            flag = -1
+    permutation = [i+1 for i in range(0, length-1)]
+
+    answer = -1
+    while True :
+        now = dist[0][permutation[0]]
+
+        for i in range(length-2):
+            now += dist[permutation[i]][permutation[i+1]]
+
+        if answer == -1 or answer > now :
+            answer = now
+        if not next_permutation (permutation):
             break
 
-'''
-if flag == -1 :
-    print("-1")
-    continue
-    '''
-
-permutation = [i+1 for i in range(0, length-1)]
-
-answer = -1
-while True :
-    now = dist[0][permutation[0]]
-
-    for i in range(length-2):
-        now += dist[permutation[i]][permutation[i+1]]
-
-    if answer == -1 or answer > now :
-        answer = now
-    if not nextPermutation (permutation):
-        break
-
-
-print(answer)
+    print(answer)
