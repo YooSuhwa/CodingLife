@@ -12,42 +12,47 @@
 '''
 from collections import deque
 
-def bfs(num):
-    q = deque()
-    dist = [-1] * num
-    way = [-1 ] * num
-    how = [-1] * num
+dx = [0, 0, 1, -1]
+dy = [1, -1, 0, 0]
 
-    temp = 1%num
-    q.append(temp)
-    dist[temp] = 0
-    way[temp] = 0
-    how[temp] = 1
+startX = startY = endX = endY = -1
 
-    while q :
-        now = q.popleft()
-        for i in range(0,2):
-            next = (now*10 + i)%num
-            if dist[next] == -1:
-                dist[next] = dist[now] +1
-                way[next] = now
-                how[next] = i
-                q.append(next)
+w, h = map(int, input().split())
+board = [input() for _ in range(h)]
 
-    if dist[0] == -1 :
-        print("BRAK")
-        return
+for i in range(h):
+    for j in range(w):
+        if board[i][j] == 'C':
+            if startX == -1:
+                startX = i
+                startY = j
+            else:
+                endX = i
+                endY = j
 
-    answer = ""
-    i = 0
-    while i!= -1:
-        answer += str(how[i])
-        i = way[i]
-    print(answer)
+q = deque()
+dist = [[-1]*w for i in range(h)]
 
+q.append((startX, startY))
+dist[startX][startY] = 0
 
+while q:
+    now = q.popleft()
+    x = now[0]
+    y = now[1]
 
-testCase = int(input())
-for _ in range(testCase):
-    num = int(input())
-    bfs(num)
+    for k in range(4):
+        newX = x + dx[k]
+        newY = y + dy[k]
+
+        while -1 < newX < h and -1 < newY < w:
+            if board[newX][newY] == '*':
+                break
+            if dist[newX][newY] == -1:
+                q.append((newX, newY))
+                dist[newX][newY] = dist[x][y] + 1
+
+            newX += dx[k]
+            newY += dy[k]
+
+print(dist[endX][endY] - 1)
