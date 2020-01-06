@@ -27,9 +27,6 @@ while q:
         if board[newX][newY]== '0':#이동할 수 없는 칸
             continue
 
-        if newY < dist[newX][newY]+1 :#해당 newY칸을 방문 했을 때의 dist가 같거나 커야 방문할 수 있다.
-            continue
-
         if dist[newX][newY] == -1 :
             dist[newX][newY] = dist[x][y] + 1
             q.append((newX, newY))
@@ -37,7 +34,8 @@ while q:
     if flag :
         break
 
-if flag== True:
+if flag:
     print(1)
 else:
     print(0)
+    
