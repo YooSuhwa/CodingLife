@@ -24,7 +24,10 @@ while q:
         if newY <0 :
             continue
 
-        if board[newX][newY]== '0':#이동할 수 없는 칸
+        if board[newX][newY] == '0':#이동할 수 없는 칸
+            continue
+
+        if newY <= dist[x][y] :#해당 newY칸을 방문 했을 때의 dist가 같거나 커야 방문할 수 있다.
             continue
 
         if dist[newX][newY] == -1 :
@@ -34,8 +37,4 @@ while q:
     if flag :
         break
 
-if flag:
-    print(1)
-else:
-    print(0)
-    
+print(1 if flag else 0)
