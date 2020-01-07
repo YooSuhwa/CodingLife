@@ -1,3 +1,16 @@
+'''
+   @ ush 2020/01/07
+   * 백준 알고리즘 - 15558 점프게임 (https://www.acmicpc.net/problem/15558)
+   * python
+
+   * BFS
+
+   * 2개의 지도가 있을 때, 유저가 할 수 있는 행동은
+    * 1. 한칸 위로 (0, 1)
+    * 2. 한칸 뒤로 (0,-1)
+    * 3. 옆칸으로 이동 후 k만큼 이동 (+1 mod 2, +k)
+   * i초에 i번째 칸이 사라질 때, N번째 칸을 넘어갈 수 있는지 구하는 문제
+'''
 from collections import deque
 
 n, k = map(int, input().strip().split(' '))
