@@ -1,5 +1,5 @@
 '''
-   @ ush 2020/01/07
+   @ 2020/01/07 ush
    * 백준 알고리즘 - 15558 점프게임 (https://www.acmicpc.net/problem/15558)
    * python
 
