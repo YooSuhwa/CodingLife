@@ -1,5 +1,5 @@
 '''
-   @ ush 2020/01/08
+   @ 2020/01/08 ush
    * 백준 알고리즘 - 11048 이동하기 (https://www.acmicpc.net/problem/11048)
    * python
 
