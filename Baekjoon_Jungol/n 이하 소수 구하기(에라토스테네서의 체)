@@ -1,0 +1,13 @@
+'''
+	n 이하 소수 구하기(에라토스테네서의 체)
+'''
+def findPrimes (n):
+    isPrime = [1]*n
+    maxLength = math.ceil(math.sqrt(n))
+
+    for i in range(2, maxLength):
+        if isPrime[i]==1:
+            for j in range(i+i, n, i):
+                isPrime[j] = 0
+
+    return [i for i in range(2, n) if isPrime[i]]
