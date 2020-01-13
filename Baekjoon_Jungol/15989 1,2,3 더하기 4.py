@@ -1,6 +1,6 @@
 '''
    @ 2020/01/13 ush
-   * 백준 알고리즘 - 9095 1,2,3 더하기 (https://www.acmicpc.net/problem/9095)
+   * 백준 알고리즘 - 15989 1,2,3 더하기 4 (https://www.acmicpc.net/problem/15989)
    * python
 
    * dp
