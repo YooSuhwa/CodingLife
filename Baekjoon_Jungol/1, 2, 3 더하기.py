@@ -1,3 +1,12 @@
+'''
+   @ 2020/01/13 ush
+   * 백준 알고리즘 - 9095 1,2,3 더하기 (https://www.acmicpc.net/problem/9095)
+   * python
+
+   * dp
+   
+   * 정수 n을 1,2,3의 합으로 나타내는 방법의 수를 구하는 문제
+'''
 testcase = int(input())
 
 for _ in range(testcase):
