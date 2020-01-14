@@ -1,3 +1,12 @@
+'''
+   @ 2020/01/15 ush
+   * 백준 알고리즘 - 2294 동전 2 (https://www.acmicpc.net/problem/2294)
+   * python
+
+   * dp
+
+   * n가지 종류의 각각 다른 가치를 가진 동전이 있을 때, 그 가치의 합이 k원이 되도록 하는 최소의 동전 개수 찾기
+'''
 size, n = map(int, input().strip().split(' '))
 seq = [int(input()) for _ in range(size)]
 
