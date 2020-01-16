@@ -1,3 +1,13 @@
+/*
+   @ 2020.01.16 ush
+   * 백준 알고리즘 - 1932 정수 삼각형 (https://www.acmicpc.net/problem/1932)
+   * cpp
+
+   * 정수로 이루어진 삼각형의 
+     맨 위층에서 시작해서 아래에 있는 수 중 하나를 선택하여 아래층으로 내려올 때, 
+     이제까지 선택된 수의 합이 최대가 되는 경로를 구하는 프로그램
+
+*/
 #include <iostream>
 using namespace std;
 
