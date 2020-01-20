@@ -1,6 +1,6 @@
 import java.util.*;
 public class Main {
-    static int[][] d;
+    static long[][] d;
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         
@@ -12,7 +12,7 @@ public class Main {
         
         n -= 1;
         
-        d = new int [n][21];
+        d = new long [n][21];
         d[0][arr[0]] = 1;
         
         for (int i=1; i<n; i++) {
@@ -28,6 +28,3 @@ public class Main {
         System.out.println(d[n-1][arr[n]]);
     }
 }
-
-
-
