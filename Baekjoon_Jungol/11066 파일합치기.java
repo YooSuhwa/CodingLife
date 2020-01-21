@@ -21,7 +21,7 @@ public class Main {
 		
 		
 		for (int k = s; k < e; k++) {
-			int temp = go(s,k) + go(k+1,e);
+			int temp = go(s,k) + go(k+1,e)+sum;
 			
 			if(answer == -1 || answer > temp) {
 				answer = temp;
