@@ -1,4 +1,11 @@
+'''
+   @ 2020/01/22 ush
+   * 백준 알고리즘 - 11724 연결 요소의 개수 (https://www.acmicpc.net/problem/11724)
+   * python (PyPy3)
 
+   * dfs
+   
+'''
 from collections import deque
 def dfs(v, n):
     visit[v] = True
